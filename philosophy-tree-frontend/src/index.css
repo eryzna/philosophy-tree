@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/*.container {
+  background-image: url(assets/Test.jpeg);
+  /* Used to position the video and content */
+  /*position: relative;
+}*/
+
+.container__wrapper {
+  
+  /* Positioned at the top left corner */
+  left: 0px;
+  position: absolute;
+  top: 0px;
+
+  /* Take full size */
+  height: 100%;
+  width: 100%;
+
+  /* Hide the scrollbar */
+  overflow: hidden;
+}
+
+.container__video {
+  
+  object-fit: cover;
+
+  /* Center the video */
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Take full width */
+  width: 100%;
+}
+
+.container__content {
+  /* Positioned at the top left corner */
+  left: 0px;
+  position: absolute;
+  top: 0px;
+
+  /* Take full size */
+  height: 100%;
+  width: 100%;
+
+  /* Center the content */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

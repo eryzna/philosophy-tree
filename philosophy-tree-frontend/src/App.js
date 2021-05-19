@@ -4,8 +4,6 @@ import Quote from './components/Quote.js'
 
 class App extends Component {
   
-  // Nothing needs to change here! 
-  // Make note of what prop we are initially passing to `ColorBox` below!
   
   render() {
     return (

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 //import QuoteContent from './QuoteContent.js'
 //import QuoteAuthor from './QuoteAuthor.js'
 import Category from './Category.js'
+import CategoryDropdown from './CategoryDropdown.js'
 
 class CategoryContainer extends Component {
 
@@ -41,10 +42,14 @@ class CategoryContainer extends Component {
     
         return (
             <div >
+                <CategoryDropdown categories={this.state.categories} />
                 <Category categories={this.state.categories} />
+                
             </div>
         )
     }
 }
+
+
 
 export default CategoryContainer

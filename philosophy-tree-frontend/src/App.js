@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import QuoteContainer from './components/QuoteContainer'
-//import QuoteContent from './components/QuoteContent'
+//import Quote from './components/Quote'
 //import QuoteAuthor from './components/QuoteContent'
 //import Test from './components/Test'
 

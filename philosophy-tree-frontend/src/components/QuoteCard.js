@@ -54,8 +54,6 @@ export default class QuoteCard extends Component {
             <h1>{this.props.content}</h1>
             <h3>{this.props.author}</h3>
 
-            <h3>{this.props.category}</h3>
-
           
         </div>
       )

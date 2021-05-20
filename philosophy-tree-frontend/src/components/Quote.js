@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import QuoteCard from './QuoteCard.js'
 
 export default class Quote extends Component {
+
+    
     render() {
         
       return (
         <>
           {this.props.quotes.map((quote, id) => 
           <div key={id}>
-            <QuoteCard content={quote.content} author={quote.author} />
+            <QuoteCard content={quote.content} author={quote.author} category={quote.category_id} />
             </div>
             
           )}

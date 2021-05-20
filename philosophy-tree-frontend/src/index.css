@@ -14,8 +14,7 @@ code {
 
 
 /*.container {
-  background-image: url(assets/Test.jpeg);
-  /* Used to position the video and content */
+  /*Used to position the video and content */
   /*position: relative;
 }*/
 
@@ -37,6 +36,7 @@ code {
 .container__video {
   
   object-fit: cover;
+  /*background-image: url(assets/Test.jpeg);*/
 
   /* Center the video */
   left: 50%;
@@ -48,19 +48,19 @@ code {
   width: 100%;
 }
 
-.container__content {
+/*.container__content {
   /* Positioned at the top left corner */
-  left: 0px;
+  /*left: 0px;
   position: absolute;
   top: 0px;
 
   /* Take full size */
-  height: 100%;
+  /*height: 100%;
   width: 100%;
 
   /* Center the content */
-  align-items: center;
+  /*align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+}*/

@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
 
     def index 
-        category = Category.all
+        categories = Category.all
+        render json: CategorySerializer.new(categories).to_serialized_json 
     end
 
 end

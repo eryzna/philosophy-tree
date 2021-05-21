@@ -2,15 +2,16 @@
 import React, { Component } from 'react';
 //import QuoteContent from './QuoteContent.js'
 //import QuoteAuthor from './QuoteAuthor.js'
-import Category from './Category.js'
+//import Category from './Category.js'
 import CategoryDropdown from './CategoryDropdown.js'
+//import QuoteContainer from './QuoteContainer'
 
 class CategoryContainer extends Component {
 
     constructor() {
         super();
         this.state = {
-          quotes: [],
+          categories: [],
         };
     }
 
@@ -43,7 +44,8 @@ class CategoryContainer extends Component {
         return (
             <div >
                 <CategoryDropdown categories={this.state.categories} />
-                <Category categories={this.state.categories} />
+                
+                
                 
             </div>
         )
@@ -53,3 +55,6 @@ class CategoryContainer extends Component {
 
 
 export default CategoryContainer
+
+//<Category categories={this.state.categories} />
+//<CategoryDropdown categories={this.state.categories} />

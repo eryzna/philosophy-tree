@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CategoryDropdown from './CategoryDropdown.js';
 //import QuoteContent from './QuoteContent.js'
 //import QuoteAuthor from './QuoteAuthor.js'
 import Quote from './Quote.js'
@@ -7,48 +8,66 @@ import Quote from './Quote.js'
  
 class QuoteContainer extends Component {
 
-  //state = {
-  //  quotes: []
-  //}
-
   constructor() {
     super();
     this.state = {
       quotes: [],
     };
+}
+  
+  componentDidMount() {
+    console.log(this.props)
+    this.fetchQuotes()
   }
+
+  fetchQuotes = () => {
+    console.log('fetching quotes')
+    let endpoint = '/categories';
+
+    if (this.props.category !== 'all') {
+      endpoint += `?name=${this.props.category}`;
+      console.log(endpoint)
+    }
+
+    fetch(endpoint)
+      .then(res => res.json())
+      
+      .then(quotes => this.setState({ quotes: quotes}));
+  };
+
+  onChangeType = ({ target: { value } }) => {
+    this.setState({ filters: { ...this.state.filters, type: value } });
+  };
 
   render() {
     return (
-      <div className = "container__wrapper">
-        
-        <Quote quotes= {this.state.quotes}/>
-
+      <div>
         
       </div>
     )
   }
+}
   //
   //<QuoteContent content = {this.state.quotes.map((quote, id) => <h1 key={id}>{quote.content}</h1>)}/>
 
-  fetchQuotes() {
-    const quotesUrl = '/quotes'
-    //let quotes = []
-    fetch(quotesUrl)
-      .then(response => {
-        console.log(response)
-        if (!response.ok) { throw response }
-        return response.json()  //we only get here if there is no error
-      })
-      .then(json => {
-        console.log(json)
-        this.setState({
-          quotes: json
-        })
-      })
-      .catch(response => {
-        console.log(response)
-      })
+  //fetchQuotes() {
+  //  const quotesUrl = '/quotes'
+  //  //let quotes = []
+  //  fetch(quotesUrl)
+  //    .then(response => {
+  //      console.log(response)
+  //      if (!response.ok) { throw response }
+  //      return response.json()  //we only get here if there is no error
+  //    })
+  //    .then(json => {
+  //      console.log(json)
+  //      this.setState({
+  //        quotes: json
+  //      })
+  //    })
+  //    .catch(response => {
+  //      console.log(response)
+  //    })
       //console.log(this.state.quotes)
     //fetch(quotesUrl)//, { credentials: "include",
     //headers: {
@@ -63,12 +82,12 @@ class QuoteContainer extends Component {
     //  .then(results => {
     //  console.log(results)
     //})
-  }
+  
       
  
-  componentDidMount() {
-    this.fetchQuotes()
-  }
+  //componentDidMount() {
+  //  this.fetchQuotes()
+  //}
 
     //fetch('http://localhost:3000/quotes')
       //.then(response => {
@@ -88,7 +107,7 @@ class QuoteContainer extends Component {
     
       //console.warn(xhr.responseText)
       
-}
+
 
  
 export default QuoteContainer

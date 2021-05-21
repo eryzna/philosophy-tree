@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 //import CategoryDropdown from './components/CategoryDropdown'
 import CategoryContainer from './components/CategoryContainer'
+import QuoteContainer from './components/QuoteContainer'
 //import QuoteAuthor from './components/QuoteContent'
-//import Test from './components/Test'
+//import FormParent from './components/FormParent'
 
 class App extends Component {
   
@@ -10,9 +11,8 @@ class App extends Component {
   render() {
     return (
       <div className="container" id="app">
-          
-          <CategoryContainer />
-  
+          <CategoryContainer/>
+        
       </div>
     )
   }
@@ -21,3 +21,5 @@ class App extends Component {
 export default App;
 
 //<QuoteContainer />
+//
+//<FormParent />

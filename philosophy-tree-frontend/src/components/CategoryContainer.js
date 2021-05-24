@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //import QuoteAuthor from './QuoteAuthor.js'
 //import Category from './Category.js'
 import CategoryDropdown from './CategoryDropdown.js'
-//import QuoteContainer from './QuoteContainer'
+import QuoteContainer from './QuoteContainer'
 
 class CategoryContainer extends Component {
 
@@ -12,33 +12,36 @@ class CategoryContainer extends Component {
         super();
         this.state = {
           categories: [],
-          //quotes: [],
-          category: 'All'
+          quotes: [],
+          categoryName: 'All',
+          categoryId: '0'
         };
     }
 
-    filterByCategory = () => {
-        //console.log("filter by category in category")
-        console.log(this.state.category)
-        //console.log('fetching quotes by  category')
-        //console.log('')
-        let endpoint = '/categories';
-        
-        if (this.props.category !== 'all') {
-          endpoint += `?name=${this.state.category}`;
-          console.log(endpoint)
-        }
-        
-        fetch(endpoint)
-          .then(res => res.json())
-          
-          
-          .then(category => this.setState({ quotes: category.quotes}));
+    getCategoryId = (event) => {
+        console.log("get Category id")
 
-          //console.log(this.state.quotes)
-        
-        
+        let result = this.state.categories.filter(category => category.name === event)
+        if (event !== 'All') {
+            this.setState({
+               categoryName: result[0].name, 
+               categoryId: result[0].id,
+               quotes: result[0].quotes
+            })
+        } else {
+            this.fetchQuotes()
+        }
+        console.log(event)
+        console.log(result[0])
+        //this.setState({
+        //    categoryName: result[0].name, 
+        //    categoryId: result[0].id,
+        //    quotes: result[0].quotes
+        //  })
+        console.log(this.state)
+
     }
+
 
     fetchCategories() {
         const categoriesUrl = '/categories'
@@ -63,37 +66,61 @@ class CategoryContainer extends Component {
 
     onChangeName = (event) => {
         console.log(event.target.value)
-        //console.log({target: {value}})
-        //console.log({target: {value, id} })
-        this.setState({ 
-            category: event.target.value,     
-        });
+        this.getCategoryId(event.target.value)
+        //this.setState({ 
+        //    category: event.target.value,     
+        //});
     };
 
     handleClick = () => {
         //console.log(event)
-        //console.log("clicked")
+        console.log("clicked")
         console.log(this.state)
         //console.log(this.props.categories[1])
-        this.filterByCategory()
+        //this.onChangeName()
+    }
+
+    fetchQuotes() {
+        const quotesUrl = '/quotes'
+        //let quotes = []
+        fetch(quotesUrl)
+          .then(response => {
+            console.log(response)
+            if (!response.ok) { throw response }
+            return response.json()  //we only get here if there is no error
+          })
+          .then(json => {
+            console.log(json)
+            this.setState({
+              quotes: json
+            })
+            console.log(this.state.quotes)
+          })
+          .catch(response => {
+            console.log(response)
+          })
     }
 
 
     componentDidMount() {
         this.fetchCategories()
-        console.log(this.state)
+        this.fetchQuotes()
     }
 
     render() {
     
         return (
             <div >
+                <div>
                 <CategoryDropdown 
                 categories={this.state.categories} 
                 filterByCategory={this.filterByCategory}
                 onChangeName={this.onChangeName}
-                handleClick={this.handleClick}/> 
-                
+                handleClick={this.handleClick}/>  
+                </div>
+                <div className = "">
+                    <QuoteContainer quotes={this.state.quotes}/>
+                </div>
             </div>
         )
     }

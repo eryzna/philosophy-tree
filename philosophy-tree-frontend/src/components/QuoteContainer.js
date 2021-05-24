@@ -8,46 +8,12 @@ import Quote from './Quote.js'
  
 class QuoteContainer extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      quotes: [],
-    };
-}
   
-  componentDidUpdate() {
-    console.log(this.props)
-    this.categoryFilter()
-    //this.fetchQuotes()
-  }
-
-  categoryFilter = () => {
-    console.log(this.props.categoryFilter)
-  }
-
-  fetchQuotes = () => {
-    console.log('fetching quotes')
-    console.log('')
-    let endpoint = '/categories';
-
-    if (this.props.category !== 'all') {
-      endpoint += `?name=${this.props.category}`;
-      console.log(endpoint)
-    }
-
-    fetch(endpoint)
-      .then(res => res.json())
-      
-      .then(quotes => this.setState({ quotes: quotes}));
-  };
-
-  onChangeType = ({ target: { value } }) => {
-    this.setState({ filters: { ...this.state.filters, type: value } });
-  };
 
   render() {
     return (
-      <div>
+      <div className="container__content">
+        {this.props.quotes.map((quote) => <h1>{quote.content}</h1>)}
         
       </div>
     )

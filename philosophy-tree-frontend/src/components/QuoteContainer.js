@@ -15,13 +15,19 @@ class QuoteContainer extends Component {
     };
 }
   
-  componentDidMount() {
+  componentDidUpdate() {
     console.log(this.props)
-    this.fetchQuotes()
+    this.categoryFilter()
+    //this.fetchQuotes()
+  }
+
+  categoryFilter = () => {
+    console.log(this.props.categoryFilter)
   }
 
   fetchQuotes = () => {
     console.log('fetching quotes')
+    console.log('')
     let endpoint = '/categories';
 
     if (this.props.category !== 'all') {

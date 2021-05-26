@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoryDropdown from './CategoryDropdown.js';
+//import CategoryDropdown from './CategoryDropdown.js';
 //import QuoteContent from './QuoteContent.js'
 //import QuoteAuthor from './QuoteAuthor.js'
 import Quote from './Quote.js'
@@ -12,13 +12,19 @@ class QuoteContainer extends Component {
 
   render() {
     return (
-      <div className="container__content">
-        {this.props.quotes.map((quote) => <h1>{quote.content}</h1>)}
-        
+      <div>
+        {this.props.quotes.map((quote) => 
+        <Quote content={quote.content} author={quote.author}/>)}
       </div>
+      
     )
   }
 }
+
+      //<div>
+      //  {this.props.quotes.map((quote) => 
+      //  <Quote content={quote.content} author={quote.author}/>)}
+      //</div>
   //
   //<QuoteContent content = {this.state.quotes.map((quote, id) => <h1 key={id}>{quote.content}</h1>)}/>
 

@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 //import Category from './Category.js'
 import CategoryDropdown from './CategoryDropdown.js'
 import QuoteContainer from './QuoteContainer'
+import Placeholder from './Placeholder'
 
 class CategoryContainer extends Component {
 
@@ -110,23 +111,25 @@ class CategoryContainer extends Component {
     render() {
     
         return (
-            <div >
-                <div>
+            <div className = "container" >
+                <>
                 <CategoryDropdown 
                 categories={this.state.categories} 
                 filterByCategory={this.filterByCategory}
                 onChangeName={this.onChangeName}
                 handleClick={this.handleClick}/>  
-                </div>
-                <div className = "">
-                    <QuoteContainer quotes={this.state.quotes}/>
-                </div>
+                </>
+                
+
+                <div><QuoteContainer quotes={this.state.quotes}/></div>
             </div>
         )
     }
 }
 
-
+//<div className = "">
+                    //<QuoteContainer quotes={this.state.quotes}/>
+                //</div>
 
 export default CategoryContainer
 

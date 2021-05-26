@@ -12,10 +12,14 @@ functional
 
 NEED 
 [] How to render a single quote on page?
-[] How to filter quotes by category?
+[x] How to filter quotes by category?
 [] How to render random quote on page?
-[] Category filter dropdown
+[x] Category filter dropdown
 [] New quote submission
+[] View category page
+[] View all quotes by category?
+[] Routes
+[] Redux
 
 <>
             {this.props.categories.map((category, id) => 

@@ -8,14 +8,13 @@ export default class Quote extends Component {
     render() {
         
       return (
-        <>
-          {this.props.quotes.map((quote, id) => 
-          <div key={id}>
-            <QuoteCard content={quote.content} author={quote.author} category={quote.category_id} />
-            </div>
-            
-          )}
-        </>
+
+      <div class="container__content">
+        
+            <h1>{this.props.content}</h1>
+            <p>{this.props.author}</p>
+           
+        </div>
       )
     }
   }

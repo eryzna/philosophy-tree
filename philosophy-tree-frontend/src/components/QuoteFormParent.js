@@ -49,12 +49,13 @@ class QuoteFormParent extends React.Component {
   render() {
     return (
       <div className="container">
+        <div className="container__content">
           <CategoryForm 
           categories={this.state.categories} 
           fetchCategories={this.fetchCategories}
           />
           
-        
+          </div>
         
       </div>
     )

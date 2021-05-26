@@ -44,6 +44,10 @@ export default class CategoryForm extends Component {
         //.log(array)
         if (array.includes(this.state.category)) {
             console.log('yes')
+            this.setState( {
+                clicked: 'true'
+            })
+        
         }else {
             console.log('no')
             this.setState({
@@ -69,7 +73,7 @@ export default class CategoryForm extends Component {
         
         if (this.state.clicked === 'false') {
             return (
-                <div className="category_dropdown">
+                <div className="form">
                     <h3>First, select a category</h3>
                   <select name ="name" className = "" onChange={this.handleChange}>
                       <option></option>
@@ -88,9 +92,9 @@ export default class CategoryForm extends Component {
                </div>
             )}else{
             return (
-                <div>
+                <>
                 <QuoteForm details={this.state} /> 
-                </div>
+                </>
             )
         }
     }

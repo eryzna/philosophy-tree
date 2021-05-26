@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Quote from "./Quote"
  
 class QuoteForm extends React.Component {
 
@@ -81,40 +83,60 @@ postQuote = () => {
 handleClick = (event) => {
   event.preventDefault()
   this.postQuote()
+  this.setState({
+    clicked: 'true'
+  })
   //console.log(this.state)
 }
 
   render() {
-    return (
-        <div class= "container">
-            <div class='category_dropdown'>
-                <h3>Submit a Quote for {this.props.details.category} </h3>
-                    <form>
-                      
-                        <label>Quote</label>
-                      <textarea
-                        type="text"
-                        name="content"
-                        onChange={event => this.handleChange(event)}
-                        //value={this.props.formData.content}
-                        value={this.state.content}
-                      />
-                      <br></br>
-                      <br></br>
-                      <label>Author</label>
-                      <input
-                       
-                        type="text"
-                        name="author"
-                        onChange={event => this.handleChange(event)}
-                        value={this.state.author} 
+
+    if (this.state.clicked === 'false') {
+      return (
+
+              <div className="container__content">
+                  <h3>Submit a Quote for {this.props.details.category} </h3>
+                      <form className="form">
+
+                          <label>Quote</label>
+                        <textarea
+                          type="text"
+                          name="content"
+                          onChange={event => this.handleChange(event)}
+                          //value={this.props.formData.content}
+                          value={this.state.content}
                         />
-                        <button onClick={this.handleClick}>Submit</button>
-                    </form>
-                
-            </div>
+                        <br></br>
+                        <br></br>
+                        <label>Author</label>
+                        <input
+
+                          type="text"
+                          name="author"
+                          onChange={event => this.handleChange(event)}
+                          value={this.state.author} 
+                          />
+                          <br></br>
+                          <br></br>
+                          <button onClick={this.handleClick}>Submit</button>
+                      </form>
+
+              </div>
+      )
+    } else {
+      return (
+        <div className="container">
+          <div className = "container__content">
+          <h3>Submitted to {this.props.details.category}</h3>
+          
+          <Quote 
+          content={this.state.formData.content} 
+          author={this.state.formData.author} 
+          category={this.props.details.category} />
+          </div>
         </div>
-    )
+      )
+    }
   }
 }
  

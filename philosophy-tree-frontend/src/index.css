@@ -53,19 +53,28 @@ code {
   padding-bottom: 20px
 }
 
-/*.container__content {
+.container__content {
   /* Positioned at the top left corner */
-  /*left: 0px;
+  left: 0px;
   position: absolute;
   top: 0px;
 
   /* Take full size */
-  /*height: 100%;
+  height: 100%;
   width: 100%;
 
   /* Center the content */
-  /*align-items: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}*/
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+}

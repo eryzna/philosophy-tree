@@ -5,13 +5,25 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './bootstrap.min.css';
 import './carousel.css'
-import Header from  './components/Header'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import QuoteFormParent from  './components/QuoteFormParent';
+import CategoryContainer from './components/CategoryContainer'
+import Header from './components/Header'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  document.getElementById('root')
+);
+
+ReactDOM.render((
+  <Router>
+      <Route exact path="/" component={App} />
+      <Route exact path="/new-quote" component={QuoteFormParent} />
+      
+  </Router>),
   document.getElementById('root')
 );
 

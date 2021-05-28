@@ -2,6 +2,7 @@ import React from 'react';
 import QuoteForm from './QuoteForm'
 import DisplayData from './DisplayData'
 import CategoryForm from './CategoryForm'
+import Header from './Header'
  
 class QuoteFormParent extends React.Component {
     constructor() {
@@ -48,6 +49,8 @@ class QuoteFormParent extends React.Component {
  
   render() {
     return (
+      <>
+      <Header />
       <div className="container">
         <div className="container__content">
           <CategoryForm 
@@ -58,6 +61,7 @@ class QuoteFormParent extends React.Component {
           </div>
         
       </div>
+      </>
     )
   }
 }

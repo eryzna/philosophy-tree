@@ -5,17 +5,21 @@ import React, { Component } from 'react';
 export default class CategoryCard extends Component {
 
     render() {
-        
-      return (
-        <div className = "category__info">
-            <h4>{this.props.name}</h4>
-            <p>{this.props.description}</p>
+        if (this.props.name !== 'All') {
+          return (
+            <div className = "category__info">
+                <h4>{this.props.name}</h4>
+                <p>{this.props.description}</p>
 
-          
-        </div>
-      )
+            </div>
+          )
+        }else{
+          return (
+            <></>
+          )
+        }
+      }
     }
-  }
 
   CategoryCard.defaultProps = {
       name: "",

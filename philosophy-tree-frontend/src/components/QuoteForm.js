@@ -94,9 +94,9 @@ handleClick = (event) => {
     if (this.state.clicked === 'false') {
       return (
 
-              <div className="container__content">
+              <div className="form">
                   <h3>Submit a Quote for {this.props.details.name} </h3>
-                      <form className="form">
+                      
 
                           <label>Quote</label>
                         <textarea
@@ -119,7 +119,7 @@ handleClick = (event) => {
                           <br></br>
                           <br></br>
                           <button onClick={this.handleClick}>Submit</button>
-                      </form>
+                    
 
               </div>
       )

@@ -39,7 +39,7 @@ class QuoteForm extends React.Component {
 
 
   getCategoryId = () => {
-    let result = this.state.categories.filter(category =>  category.name === this.props.details.category)
+    let result = this.state.categories.filter(category =>  category.name === this.props.details.name)
     console.log(result)
     //console.log(this.props.categories)
     this.setState({
@@ -95,7 +95,7 @@ handleClick = (event) => {
       return (
 
               <div className="container__content">
-                  <h3>Submit a Quote for {this.props.details.category} </h3>
+                  <h3>Submit a Quote for {this.props.details.name} </h3>
                       <form className="form">
 
                           <label>Quote</label>
@@ -127,12 +127,12 @@ handleClick = (event) => {
       return (
         <div className="container">
           <div className = "container__content">
-          <h3>Submitted to {this.props.details.category}</h3>
+          <h3>Submitted to {this.props.details.name}</h3>
           
           <Quote 
           content={this.state.formData.content} 
           author={this.state.formData.author} 
-          category={this.props.details.category} />
+          category={this.props.details.name} />
           </div>
         </div>
       )

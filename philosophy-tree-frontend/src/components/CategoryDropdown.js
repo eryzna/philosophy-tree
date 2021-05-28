@@ -18,10 +18,6 @@ export default class CategoryDropdown extends Component {
             
           
          </div>
-
-    
-         
-         
         
       )
     }

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 //import QuoteContent from './QuoteContent.js'
 //import QuoteAuthor from './QuoteAuthor.js'
-//import Category from './Category.js'
+import CategoryCard from './CategoryCard'
 import CategoryDropdown from './CategoryDropdown.js'
 import QuoteContainer from './QuoteContainer'
 import Placeholder from './Placeholder'
@@ -15,7 +15,8 @@ class CategoryContainer extends Component {
           categories: [],
           quotes: [],
           categoryName: 'All',
-          categoryId: '0'
+          categoryId: '0',
+          description: ''
         };
     }
 
@@ -27,7 +28,8 @@ class CategoryContainer extends Component {
             this.setState({
                categoryName: result[0].name, 
                categoryId: result[0].id,
-               quotes: result[0].quotes
+               quotes: result[0].quotes,
+               description: result[0].description
             })
         } else {
             this.fetchQuotes()
@@ -112,16 +114,17 @@ class CategoryContainer extends Component {
     
         return (
             <div className = "container" >
-                <>
+                <div className = "category__header">
                 <CategoryDropdown 
                 categories={this.state.categories} 
                 filterByCategory={this.filterByCategory}
                 onChangeName={this.onChangeName}
                 handleClick={this.handleClick}/>  
-                </>
+                <CategoryCard  name={this.state.categoryName} description={this.state.description} />
+                </div>
                 
 
-                <div><QuoteContainer quotes={this.state.quotes}/></div>
+                <div className="quote__container"><QuoteContainer quotes={this.state.quotes}/></div>
             </div>
         )
     }

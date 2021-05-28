@@ -7,9 +7,9 @@ export default class CategoryCard extends Component {
     render() {
         
       return (
-        <div className = "container__content">
-            <h1>{this.props.name}</h1>
-            <h3>{this.props.description}</h3>
+        <div className = "category__info">
+            <h4>{this.props.name}</h4>
+            <p>{this.props.description}</p>
 
           
         </div>

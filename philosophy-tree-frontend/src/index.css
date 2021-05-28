@@ -78,3 +78,19 @@ code {
     flex-direction: column;
     align-items: stretch;
 }
+
+.category__header {
+  display: flex;
+  align-items: baseline; 
+  border-bottom: 5px solid red;
+  
+}
+
+.category__info {
+  align-content: center;
+  padding-left: 20px
+}
+
+.quote__container {
+  padding-top: 10px
+}

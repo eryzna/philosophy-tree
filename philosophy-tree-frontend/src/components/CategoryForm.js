@@ -4,10 +4,14 @@ import QuoteForm from './QuoteForm'
 
 export default class CategoryForm extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-          category: '',
+            formData: {
+                name: '',
+                description: '',
+            },
+          
           present: 'true',
           clicked: 'false',
           
@@ -19,7 +23,7 @@ export default class CategoryForm extends Component {
         console.log(this.state)
         fetch('/categories', {
         method: 'POST', // or 'PUT'
-        body: JSON.stringify(this.state.category),
+        body: JSON.stringify(this.state.formData),
         headers: {
         'Content-Type': 'application/json',
         
@@ -34,15 +38,21 @@ export default class CategoryForm extends Component {
         console.log(event.target.value)
         
         //this.getCategoryId(event.target.value)
-        this.setState({ 
-            category: event.target.value,     
-        });
+        this.setState({
+            formData: {
+              ...this.state.formData, [event.target.name]: event.target.value
+            }
+            //({ filters: { ...this.state.filters, type: value } });
+            
+        })
+
+       // console.log(this.state.formData)
     };
 
     categoryPresent= () => {
         let array = this.props.categories.map((c) => c.name)
         //.log(array)
-        if (array.includes(this.state.category)) {
+        if (array.includes(this.state.formData.name)) {
             console.log('yes')
             this.setState( {
                 clicked: 'true'
@@ -59,22 +69,15 @@ export default class CategoryForm extends Component {
 
     handleClick = () => {
         this.categoryPresent()
-        
-        console.log(this.state.category)
-        
     }
-    
-    
-    componentDidUpdate(){
-        //this.props.fetchCategories()
-    }
+   
 
     render() {
         
         if (this.state.clicked === 'false') {
             return (
                 <div className="form">
-                    <h3>First, select a category</h3>
+                    <h3>First, select a movement</h3>
                   <select name ="name" className = "" onChange={this.handleChange}>
                       <option></option>
                       {this.props.categories.map((category, id) => 
@@ -82,18 +85,24 @@ export default class CategoryForm extends Component {
                   </select>
                   <br></br>
                   <br></br>
-                  <label>Or add new</label>
+                  <label>Or add new movement</label>
                   <input
                       type="text"
-                      name="category"
-                      onChange={event => this.handleChange(event)}></input>
+                      name="name"
+                      onChange={event => this.handleChange(event)} placeholder="Movement Name"></input>
                   <br></br>
+                  <textarea
+                        type="text"
+                        name="description"
+                        onChange={event => this.handleChange(event)} placeholder="Movement description"></textarea>
+                    <br></br>
+
                   <button onClick={this.handleClick}>Submit</button>
                </div>
             )}else{
             return (
                 <>
-                <QuoteForm details={this.state} /> 
+                <QuoteForm details={this.state.formData} /> 
                 </>
             )
         }

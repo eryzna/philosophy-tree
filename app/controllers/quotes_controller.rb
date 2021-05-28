@@ -13,8 +13,7 @@ class QuotesController < ApplicationController
         quote.author = params[:author]
         quote.category_id = params[:category_id]
         quote.save
-        render json: QuoteSerializer.new(quote).to_serialized_json
-        
+        render json: QuoteSerializer.new(quote).to_serialized_json 
     end
 
 end

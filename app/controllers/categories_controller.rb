@@ -12,8 +12,8 @@ class CategoriesController < ApplicationController
 
     def create
         category = Category.new
-        category.name = params[:_json]
-        category.description = "test"
+        category.name = params[:name]
+        category.description = params[:description]
         category.save
         render json: CategorySerializer.new(category).to_serialized_json
     end

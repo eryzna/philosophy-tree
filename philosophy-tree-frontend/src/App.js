@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 
 //import CategoryDropdown from './components/CategoryDropdown'
 import CategoryContainer from './components/CategoryContainer'
-import SlideIndicators from './components/SlideIndicators'
-import SlideButtons from './components/SlideButtons'
 import Header from './components/Header'
 //import QuoteContainer from './components/QuoteContainer'
 import QuoteFormParent from './components/QuoteFormParent'
@@ -42,7 +40,7 @@ class App extends Component {
         <Header handleClick={this.handleClick} />
         
       
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div id="home">
           
           <div className="carousel-inner" id="app">
             <CategoryContainer/>

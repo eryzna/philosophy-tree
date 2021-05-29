@@ -85,7 +85,7 @@ export default class CategoryForm extends Component {
                   </select>
                   <br></br>
                   <br></br>
-                  <label>Or add new movement</label>
+                  <h3>Or add a new movement</h3>
                   <input
                       type="text"
                       name="name"
@@ -94,6 +94,7 @@ export default class CategoryForm extends Component {
                   <textarea
                         type="text"
                         name="description"
+                        rows="5"
                         onChange={event => this.handleChange(event)} placeholder="Movement description"></textarea>
                     <br></br>
 

@@ -18,4 +18,14 @@ class CategoriesController < ApplicationController
         render json: CategorySerializer.new(category).to_serialized_json
     end
 
+    def edit
+        binding.pry
+    end
+
+    def update
+        category = Category.find_by(id: params[:id])
+        category.description = params[:description]
+        category.save
+    end
+
 end

@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import CategoryCard from './CategoryCard'
 import CategoryDropdown from './CategoryDropdown.js'
 import QuoteContainer from './QuoteContainer'
-import Placeholder from './Placeholder'
 
 class CategoryContainer extends Component {
 
@@ -120,7 +119,7 @@ class CategoryContainer extends Component {
                 filterByCategory={this.filterByCategory}
                 onChangeName={this.onChangeName}
                 handleClick={this.handleClick}/>  
-                <CategoryCard  name={this.state.categoryName} description={this.state.description} />
+                <CategoryCard  name={this.state.categoryName} description={this.state.description} id={this.state.categoryId}/>
                 </div>
                 
 

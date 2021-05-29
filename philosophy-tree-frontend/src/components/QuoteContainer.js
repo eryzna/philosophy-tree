@@ -13,8 +13,8 @@ class QuoteContainer extends Component {
   render() {
     return (
       <div>
-        {this.props.quotes.map((quote) => 
-        <Quote content={quote.content} author={quote.author}/>)}
+        {this.props.quotes.map((quote, id) => 
+        <Quote key={id} content={quote.content} author={quote.author}/>)}
       </div>
       
     )

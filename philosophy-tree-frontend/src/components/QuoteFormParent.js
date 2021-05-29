@@ -1,6 +1,4 @@
 import React from 'react';
-import QuoteForm from './QuoteForm'
-import DisplayData from './DisplayData'
 import CategoryForm from './CategoryForm'
 import Header from './Header'
  

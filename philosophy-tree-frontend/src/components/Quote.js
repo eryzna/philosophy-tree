@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 //import QuoteContainer from './QuoteContainer.js'
-import QuoteCard from './QuoteCard.js'
 
 export default class Quote extends Component {
 

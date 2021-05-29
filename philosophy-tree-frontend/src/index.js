@@ -7,8 +7,7 @@ import './bootstrap.min.css';
 import './carousel.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import QuoteFormParent from  './components/QuoteFormParent';
-import CategoryContainer from './components/CategoryContainer'
-import Header from './components/Header'
+import EditCategory from './components/EditCategory'
 
 
 ReactDOM.render(
@@ -20,8 +19,9 @@ ReactDOM.render(
 
 ReactDOM.render((
   <Router>
-      <Route exact path="/" component={App} />
+      <Route exact path="/"component={App} />
       <Route exact path="/new-quote" component={QuoteFormParent} />
+      <Route exact path="/edit-category" component={EditCategory} />
       
   </Router>),
   document.getElementById('root')

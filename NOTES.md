@@ -11,14 +11,15 @@ functional
     
 
 NEED 
-[] How to render a single quote on page?
+[] How to render a random, single quote on page?
 [x] How to filter quotes by category?
-[] How to render random quote on page?
 [x] Category filter dropdown
-[] New quote submission
+[x] New quote submission
 [] View category page
-[] View all quotes by category?
-[] Routes
+[x] View all quotes by category?
+[x] Routes
+[] Clear category edit form after submission or redirect
+[] Pre-fill category form with selection
 [] Redux
 
 <>

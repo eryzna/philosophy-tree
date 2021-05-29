@@ -7,9 +7,9 @@ export default class Header extends Component {
         
       return (
         <header>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">Philosophy Tree</a>
+            <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="/">Philosophy Tree</a>
                 <a href = "/new-quote" >Submit a Quote</a>
    
                     

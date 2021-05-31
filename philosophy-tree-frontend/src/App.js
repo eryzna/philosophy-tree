@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { fetchCategories } from './actions/FetchCategories'
+import { fetchQuotes } from './actions/FetchQuotes'
 //import NavBarTest from './components/Header'
 
 //import CategoryDropdown from './components/CategoryDropdown'
@@ -8,10 +11,17 @@ import Header from './components/Header'
 import QuoteFormParent from './components/QuoteFormParent'
 //import FormParent from './components/FormParent'
 
+ 
+
 class App extends Component {
 
   state = {
     clicked: 'false'
+  }
+
+  componentDidMount() {
+    this.props.fetchCategories()
+    this.props.fetchQuotes()
   }
   
   handleClick = () => {
@@ -21,10 +31,6 @@ class App extends Component {
     })
   }
 
-  componentDidUpdate(){
-    console.log(this.state.clicked)
-  }
-  
   render() {
 
     if (this.state.clicked === 'true') {
@@ -43,16 +49,27 @@ class App extends Component {
           <div id="home">
           
           <div className="carousel-inner" id="app">
-            <CategoryContainer/>
+            <CategoryContainer categories={this.props.categories} quotes={this.props.quotes}/>
           </div>
          
         </div>
         </>
       )}
-  }
-}
+      }
+    }
 
-export default App;
+  function mapDispatchToProps(dispatch){
+    return { fetchCategories: () => dispatch(fetchCategories()), fetchQuotes: () => dispatch(fetchQuotes()) }
+  }
+ 
+  function mapStateToProps(state){
+    return {categories: state.categories, quotes: state.quotes}
+  }
+
+  
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 //<QuoteContainer />
 //

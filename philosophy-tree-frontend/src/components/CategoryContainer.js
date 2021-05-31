@@ -8,8 +8,8 @@ import QuoteContainer from './QuoteContainer'
 
 class CategoryContainer extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           categories: [],
           quotes: [],
@@ -22,7 +22,7 @@ class CategoryContainer extends Component {
     getCategoryId = (event) => {
         console.log("get Category id")
 
-        let result = this.state.categories.filter(category => category.name === event)
+        let result = this.props.categories.filter(category => category.name === event)
         if (event !== 'All') {
             this.setState({
                categoryName: result[0].name, 
@@ -31,7 +31,9 @@ class CategoryContainer extends Component {
                description: result[0].description
             })
         } else {
-            this.fetchQuotes()
+            this.setState({
+              quotes: this.props.quotes
+            })
         }
         console.log(event)
         console.log(result[0])
@@ -44,34 +46,10 @@ class CategoryContainer extends Component {
 
     }
 
-
-    fetchCategories() {
-        const categoriesUrl = '/categories'
-        //let quotes = []
-        fetch(categoriesUrl)
-          .then(response => {
-            console.log(response)
-            if (!response.ok) { throw response }
-            return response.json()  //we only get here if there is no error
-          })
-          .then(json => {
-            console.log(json)
-            this.setState({
-              categories: json
-            })
-            //console.log(this.state.categories)
-          })
-          .catch(response => {
-            console.log(response)
-          })
-    }
-
+    
     onChangeName = (event) => {
         console.log(event.target.value)
         this.getCategoryId(event.target.value)
-        //this.setState({ 
-        //    category: event.target.value,     
-        //});
     };
 
     handleClick = () => {
@@ -82,58 +60,43 @@ class CategoryContainer extends Component {
         //this.onChangeName()
     }
 
-    fetchQuotes() {
-        const quotesUrl = '/quotes'
-        //let quotes = []
-        fetch(quotesUrl)
-          .then(response => {
-            console.log(response)
-            if (!response.ok) { throw response }
-            return response.json()  //we only get here if there is no error
-          })
-          .then(json => {
-            console.log(json)
-            this.setState({
-              quotes: json
-            })
-            console.log(this.state.quotes)
-          })
-          .catch(response => {
-            console.log(response)
-          })
-    }
-
-
-    componentDidMount() {
-        this.fetchCategories()
-        this.fetchQuotes()
-    }
 
     render() {
-    
+      if (this.state.categoryName === 'All') {
         return (
             <div className = "container" >
                 <div className = "category__header">
                 <CategoryDropdown 
-                categories={this.state.categories} 
+                categories={this.props.categories} 
                 filterByCategory={this.filterByCategory}
                 onChangeName={this.onChangeName}
                 handleClick={this.handleClick}/>  
                 <CategoryCard  name={this.state.categoryName} description={this.state.description} id={this.state.categoryId}/>
                 </div>
-                
 
-                <div className="quote__container"><QuoteContainer quotes={this.state.quotes}/></div>
+                <div className="quote__container"><QuoteContainer quotes={this.props.quotes}/></div>
             </div>
         )
+      }else {
+        return (
+          <div className = "container" >
+              <div className = "category__header">
+              <CategoryDropdown 
+              categories={this.props.categories} 
+              filterByCategory={this.filterByCategory}
+              onChangeName={this.onChangeName}
+              handleClick={this.handleClick}/>  
+              <CategoryCard  name={this.state.categoryName} description={this.state.description} id={this.state.categoryId}/>
+              </div>
+
+              <div className="quote__container"><QuoteContainer quotes={this.state.quotes}/></div>
+          </div>
+        )
+      }
     }
 }
 
-//<div className = "">
-                    //<QuoteContainer quotes={this.state.quotes}/>
-                //</div>
 
 export default CategoryContainer
 
-//<Category categories={this.state.categories} />
-//<CategoryDropdown categories={this.state.categories} />
+

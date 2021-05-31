@@ -36,7 +36,7 @@ class CategoryContainer extends Component {
             })
         }
         console.log(event)
-        console.log(result[0])
+        
         //this.setState({
         //    categoryName: result[0].name, 
         //    categoryId: result[0].id,

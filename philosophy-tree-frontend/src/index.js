@@ -22,6 +22,12 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
+    <Router>
+      <Route exact path="/"component={App} />
+      <Route exact path="/new-quote" component={QuoteFormParent} />
+      <Route exact path="/edit-category" component={EditCategory} />
+      
+    </Router>),
       <App />
     </React.StrictMode>,
   </Provider>,
@@ -36,7 +42,7 @@ ReactDOM.render(
       <Route exact path="/new-quote" component={QuoteFormParent} />
       <Route exact path="/edit-category" component={EditCategory} />
       
-  </Router>
+  </Router>),
   </Provider>,
   document.getElementById('root')
 );

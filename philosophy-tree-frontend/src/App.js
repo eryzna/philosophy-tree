@@ -48,7 +48,7 @@ class App extends Component {
       
           <div id="home">
           
-          <div className="carousel-inner" id="app">
+          <div id="app">
             <CategoryContainer categories={this.props.categories} quotes={this.props.quotes}/>
           </div>
          

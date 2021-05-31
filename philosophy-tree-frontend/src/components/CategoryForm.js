@@ -103,7 +103,7 @@ export default class CategoryForm extends Component {
             )}else{
             return (
                 <>
-                <QuoteForm details={this.state.formData} /> 
+                <QuoteForm details={this.state.formData} categories={this.props.categories} /> 
                 </>
             )
         }

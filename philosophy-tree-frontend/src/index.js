@@ -10,7 +10,7 @@ import './bootstrap.min.css';
 import './carousel.css'
 import Reducer from './reducers/Reducer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import QuoteFormParent from  './components/QuoteFormParent';
+import CategoryFormParent from  './components/CategoryFormParent';
 import EditCategory from './components/EditCategory'
 
  
@@ -21,31 +21,19 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
     <Router>
-      <Route exact path="/"component={App} />
-      <Route exact path="/new-quote" component={QuoteFormParent} />
-      <Route exact path="/edit-category" component={EditCategory} />
-      
-    </Router>),
-      <App />
-    </React.StrictMode>,
+     
+        <Route exact path="/"component={App} />
+        <Route exact path="/new-quote" component={CategoryFormParent} />
+        <Route exact path="/edit-category" component={EditCategory} />
+     
+    </Router>
   </Provider>,
   
   document.getElementById('root')
 );
 
-ReactDOM.render(
-  <Provider store={store}>
-  <Router>
-      <Route exact path="/"component={App} />
-      <Route exact path="/new-quote" component={QuoteFormParent} />
-      <Route exact path="/edit-category" component={EditCategory} />
-      
-  </Router>),
-  </Provider>,
-  document.getElementById('root')
-);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

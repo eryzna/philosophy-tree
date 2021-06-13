@@ -20,7 +20,9 @@ NEED
 [x] Routes
 [] Clear category edit form after submission or redirect
 [] Pre-fill category form with selection
-[] Redux
+[x] Redux
+[] License + readme
+[] App needs to render new-quote route and pass props 
 
 <>
             {this.props.categories.map((category, id) => 

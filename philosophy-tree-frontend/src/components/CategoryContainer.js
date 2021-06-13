@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //import QuoteAuthor from './QuoteAuthor.js'
 import CategoryCard from './CategoryCard'
 import CategoryDropdown from './CategoryDropdown.js'
-import QuoteContainer from './QuoteContainer'
+import QuoteParent from './QuoteParent'
 
 class CategoryContainer extends Component {
 
@@ -74,7 +74,7 @@ class CategoryContainer extends Component {
                 <CategoryCard  name={this.state.categoryName} description={this.state.description} id={this.state.categoryId}/>
                 </div>
 
-                <div className="quote__container"><QuoteContainer quotes={this.props.quotes}/></div>
+                <div className="quote__container"><QuoteParent quotes={this.props.quotes}/></div>
             </div>
         )
       }else {
@@ -89,7 +89,7 @@ class CategoryContainer extends Component {
               <CategoryCard  name={this.state.categoryName} description={this.state.description} id={this.state.categoryId}/>
               </div>
 
-              <div className="quote__container"><QuoteContainer quotes={this.state.quotes}/></div>
+              <div className="quote__container"><QuoteParent quotes={this.state.quotes}/></div>
           </div>
         )
       }

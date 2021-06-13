@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 
 export default class Quote extends Component {
 
+  state = {
+    counter: 0
+  }
+
+  handleClick = () => {
+    this.setState ({
+      counter: this.state.counter + 1
+    })
+  }
     
     render() {
         
@@ -12,6 +21,10 @@ export default class Quote extends Component {
         
             <h1>{this.props.content}</h1>
             <p>{this.props.author}</p>
+            <button onClick = {this.handleClick}>Like</button>
+            <p>{this.state.counter}</p>
+            
+
            
         </div>
       )

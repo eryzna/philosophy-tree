@@ -125,16 +125,16 @@ handleClick = (event) => {
       )
     } else {
       return (
-        <div className="container">
-          <div className = "container__content">
+        <>
+          
           <h3>Submitted to {this.props.details.name}</h3>
           
           <Quote 
           content={this.state.formData.content} 
           author={this.state.formData.author} 
           category={this.props.details.name} />
-          </div>
-        </div>
+          
+        </>
       )
     }
   }

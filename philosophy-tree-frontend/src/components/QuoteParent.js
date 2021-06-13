@@ -6,7 +6,7 @@ import Quote from './Quote.js'
 
 //import QuotesList from './QuotesList.js'
  
-class QuoteContainer extends Component {
+class QuoteParent extends Component {
 
   
 
@@ -88,4 +88,4 @@ class QuoteContainer extends Component {
 
 
  
-export default QuoteContainer
+export default QuoteParent

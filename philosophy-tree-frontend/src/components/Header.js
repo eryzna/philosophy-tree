@@ -11,11 +11,10 @@ export default class Header extends Component {
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">Philosophy Tree</a>
                 <a href = "/new-quote" >Submit a Quote</a>
-   
-                    
-
                    
                 </div>
+
+                
 
     
 
